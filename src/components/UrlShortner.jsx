@@ -66,7 +66,7 @@ function UrlShortener() {
     <>
       <CustomNavbar />
       <MDBContainer fluid className='p-4 background-radial-gradient'>
-        <MDBRow className='d-flex justify-content-center align-items-center custom-urlshort-heading' style={{ height: '100%' }}>
+        <MDBRow className='d-flex justify-content-center align-items-center custom-urlshort-heading' >
           <MDBCol md='12' className='text-center mb-5'>
             <h3 className="display-5 fw-bold ls-tight" style={{ color: 'hsl(218, 81%, 95%)' }}>
               URL Shortener

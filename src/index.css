@@ -119,6 +119,10 @@ body {
   margin-top:-40px;
 }
 
+.custom-urlshort-heading{
+  height: 100%;
+}
+
 @media (max-width: 768px) {
   .custom-heading-container {
     position: fixed;
@@ -162,7 +166,7 @@ body {
   }
 
   .custom-urlshort-heading{
-    margin-top: 30px;
+    height: 80%;
   }
 
 }
