@@ -1,11 +1,12 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
 .background-radial-gradient {
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +25,8 @@ html, body {
       transparent 100%);
 }
 
-#radius-shape-1, #radius-shape-2 {
+#radius-shape-1,
+#radius-shape-2 {
   position: absolute;
   background: radial-gradient(#44006b, #ad1fff);
   overflow: hidden;
@@ -51,7 +53,7 @@ html, body {
 }
 
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +62,7 @@ html, body {
   background-color: #1f2a40;
 }
 
-.form{
+.form {
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 8px;
@@ -69,12 +71,12 @@ html, body {
   max-width: 500px;
 }
 
-.title{
+.title {
   margin-bottom: 1.5rem;
   color: #1f2a40;
 }
 
-.button{
+.button {
   width: 100%;
   padding: 0.75rem;
   background-color: #007bff;
@@ -85,17 +87,17 @@ html, body {
   font-size: 1rem;
 }
 
-.button:hover{
+.button:hover {
   background-color: #0056b3;
 }
 
-.optional-text{
+.optional-text {
   color: #888;
   margin-top: 1rem;
   text-align: center;
 }
 
-.shortned-url{
+.shortned-url {
   margin-top: 1.5rem;
   color: #007bff;
 }
@@ -104,24 +106,59 @@ html, body {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-@media (max-width: 768px) {
-.custom-heading{
-  margin-top: 1860%;
+.custom-font{
+   font-size: 20px;
 }
+
+.table-responsive {
+  max-height: calc(75vh - 100px);
+  overflow-y: auto;
+}
+
+.custom-card{
+  margin-top:-40px;
+}
+
+@media (max-width: 768px) {
+  .custom-heading-container {
+    position: fixed;
+    top: 15px;
+    width: 100%;
+    z-index: 1000;
+    background-color: inherit;
+    padding: 10px;
+  }
+
+  .custom-font {
+    font-size: 15px;
+  }
+
   .custom-colour {
     min-height: 100vh;
     margin: 0;
-    padding: 0;
+    padding-top: 100px;
     overflow-x: hidden;
   }
 
   .table-responsive {
-    max-height: calc(50vh - 50px);
+    max-height: calc(10vh - 20px);
     overflow-y: auto;
   }
-  
-  th, td {
+
+  th,
+  td {
     white-space: nowrap;
     word-wrap: break-word;
   }
+
+  .custom-card-container {
+    margin-top: 20px;
+  }
+
+  .custom-card{
+    margin-top: 40%;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px); 
+  }
+
 }

@@ -101,8 +101,8 @@ function UrlShortener() {
                       />
                       {shortUrl && (
                         <div className='d-flex align-items-center md-5'>
-                          <h5 className='me-2'>Shortened URL:</h5>
-                          <a href={shortUrl} style={{ fontSize: '20px', marginTop: '-8px' }} target="_blank" rel="noopener noreferrer">{shortUrl}</a>
+                          <h5 className='me-2 custom-font'>Shortened URL:</h5>
+                          <a href={shortUrl} className='custom-font' style={{marginTop:'-10px'}} target="_blank" rel="noopener noreferrer">{shortUrl}</a>
                         </div>
                       )}
                       <MDBBtn

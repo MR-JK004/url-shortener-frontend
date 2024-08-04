@@ -59,10 +59,10 @@ function UrlListDisplay() {
     <>
       <Navbar />
       <MDBContainer fluid className='p-4 background-radial-gradient custom-colour'>
-        <MDBRow className='d-flex justify-content-center align-items-center' style={{ height: 'auto' }}>
-          <MDBCol md='12' className='text-center mb-5'>
-            <h3 className="display-5 fw-bold ls-tight custom-heading" style={{ color: 'hsl(218, 81%, 95%)' }}>
-              Created URLs
+        <MDBRow className='d-flex justify-content-center align-items-start' style={{ height: '100vh', overflow: 'hidden' }}>
+          <MDBCol md='12' className='text-center mb-5 custom-heading-container'>
+            <h3 className="display-5 fw-bold ls-tight custom-heading" style={{ color: 'hsl(218, 81%, 95%)' ,marginTop:'60px'}}>
+              Url List
               <br />
               <span className='text-muted'>View Your Shortened URLs</span>
             </h3>
@@ -82,7 +82,7 @@ function UrlListDisplay() {
                         {urlList.length === 0 ? (
                           <p>No URLs found</p>
                         ) : (
-                          <div className="table-responsive d-none d-md-block" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+                          <div className="table-responsive d-none d-md-block" >
                             <Table striped bordered hover responsive>
                               <thead>
                                 <tr className='text-center'>
@@ -111,7 +111,7 @@ function UrlListDisplay() {
                         )}
                         <div className="d-block d-md-none">
                           {urlList.map((url, index) => (
-                            <MDBCard key={url._id} className="mb-3">
+                            <MDBCard key={url._id} className="mb-3 card-container">
                               <MDBCardBody>
                                 <h5>S.No: {index + 1}</h5>
                                 <p><strong>Original URL:</strong> <span style={{ wordBreak: 'break-word' }}>{url.originalUrl}</span></p>
