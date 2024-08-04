@@ -96,7 +96,7 @@ function Register() {
         </MDBCol>
         <MDBCol md='6' className='position-relative'>
           <div id="radius-shape-1" className="position-absolute rounded-circle shadow-5-strong"></div>
-          <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
+          <div id="radius-shape-2" className=" shadow-5-strong" style={{marginRight:'15%',width:'40%'}}></div>
           <CardTransition>
             <MDBCard className='my-5 bg-glass'>
               <MDBCardBody className='p-5'>

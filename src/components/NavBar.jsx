@@ -1,59 +1,52 @@
-import React, { useState } from 'react';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarToggler, MDBCollapse, MDBNavbarNav, MDBNavbarItem, MDBIcon } from 'mdb-react-ui-kit';
+import React from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleCollapse = () => {
-    setIsOpen(prev => !prev); 
-  };
-
+function CustomNavbar() {
   const handleLogout = () => {
     sessionStorage.clear();
     toast.info("Logout Successful");
   };
 
   return (
-    <MDBNavbar expand='lg' dark bgColor='primary'>
-      <MDBNavbarBrand>
-        <MDBIcon fas icon="link" className="me-2" style={{ marginLeft: '10%' }} />
-        URL Shortener
-      </MDBNavbarBrand>
-      <MDBNavbarToggler aria-controls='navbarCollapse' aria-expanded={isOpen} aria-label='Toggle navigation' onClick={toggleCollapse}>
-        <MDBIcon fas icon='bars' />
-      </MDBNavbarToggler>
-      <MDBCollapse navbar show={isOpen}>
-        <MDBNavbarNav className='mb-2 mb-lg-0' style={{ marginLeft: '145%' }}>
-          <MDBNavbarItem style={{marginRight:'20px'}}>
-            <Link className="nav-link" to="/url-shortner">
-              <MDBIcon fas icon="compress" className="me-2" />
-              Shorten URL
-            </Link>
-          </MDBNavbarItem>
-          <MDBNavbarItem style={{marginRight:'20px'}}>
-            <Link className="nav-link" to="/url-shortner/url-list">
-              <MDBIcon fas icon="list" className="me-2" />
-              URL List
-            </Link>
-          </MDBNavbarItem>
-          <MDBNavbarItem style={{marginRight:'20px'}}>
-            <Link className="nav-link" to="/url-shortner/dashboard">
-              <MDBIcon fas icon="chart-bar" className="me-2" />
-              URL Count
-            </Link>
-          </MDBNavbarItem>
-          <MDBNavbarItem className='me-5'>
-            <Link className="nav-link" to={'/login'} onClick={()=>handleLogout()}>
-              <MDBIcon fas icon="sign-out-alt" className="me-2" />
-              Log Out
-            </Link>
-          </MDBNavbarItem>
-        </MDBNavbarNav>
-      </MDBCollapse>
-    </MDBNavbar>
+    <>
+      <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" fixed="top">
+        <Container fluid>
+          <Navbar.Brand as={Link} to="/url-shortner">
+            <i className="fas fa-link me-2"></i>
+            URL Shortener
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" className="custom-toggler">
+            <i className="fas fa-bars"></i>
+          </Navbar.Toggle>
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link as={Link} to="/url-shortner" className="mx-2">
+                <i className="fas fa-compress me-2"></i>
+                Shorten URL
+              </Nav.Link>
+              <Nav.Link as={Link} to="/url-shortner/url-list" className="mx-2">
+                <i className="fas fa-list me-2"></i>
+                URL List
+              </Nav.Link>
+              <Nav.Link as={Link} to="/url-shortner/dashboard" className="mx-2">
+                <i className="fas fa-chart-bar me-2"></i>
+                URL Count
+              </Nav.Link>
+              <Nav.Link as={Link} to="/login" onClick={handleLogout} className="mx-3">
+                <i className="fas fa-sign-out-alt me-2"></i>
+                Log Out
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+    </>
   );
 }
 
-export default Navbar;
+export default CustomNavbar;

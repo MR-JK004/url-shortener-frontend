@@ -9,7 +9,7 @@ import {
   MDBCardBody,
   MDBInput
 } from 'mdb-react-ui-kit';
-import Navbar from './NavBar';
+import CustomNavbar from './NavBar';
 import { toast } from 'react-toastify';
 import useLogout from '../hooks/useLogout'
 import CardTransition from './CardTransition'
@@ -64,9 +64,9 @@ function UrlShortener() {
 
   return (
     <>
-      <Navbar />
+      <CustomNavbar />
       <MDBContainer fluid className='p-4 background-radial-gradient'>
-        <MDBRow className='d-flex justify-content-center align-items-center' style={{ height: '100%', marginTop: '-10%' }}>
+        <MDBRow className='d-flex justify-content-center align-items-center' style={{ height: '100%'}}>
           <MDBCol md='12' className='text-center mb-5'>
             <h3 className="display-5 fw-bold ls-tight" style={{ color: 'hsl(218, 81%, 95%)' }}>
               URL Shortener
@@ -77,7 +77,7 @@ function UrlShortener() {
 
           <MDBCol md='6' className='d-flex justify-content-center' style={{ marginTop: '-10%' }}>
             <CardTransition>
-              <MDBCard className='bg-glass shadow-lg' style={{ width: '100%', maxWidth: '600px' }}>
+              <MDBCard className='bg-glass shadow-lg' style={{ width: '100%'}}>
                 <MDBCardBody className='p-4'>
                   <motion.div variants={inputVariant} initial="hidden" animate="visible" transition={{ delay: 0.2 }}>
                     <h3 className="mb-4 text-center">Paste the <span className='fw-bold'>URL</span> to be shortened</h3>
