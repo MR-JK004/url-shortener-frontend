@@ -1,14 +1,14 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function CustomNavbar() {
   const handleLogout = () => {
+    toast.info("Logout Successfull")
     sessionStorage.clear();
-    toast.info("Logout Successful");
   };
 
   return (
@@ -44,7 +44,6 @@ function CustomNavbar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </>
   );
 }

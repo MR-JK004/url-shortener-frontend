@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBSpinner } from 'mdb-react-ui-kit';
 import axios from 'axios'; 
 import { toast } from 'react-toastify';
@@ -53,6 +53,7 @@ const ActivationPage = () => {
                   </div>
                   <h2 className='my-4'>Account Activated Successfully!</h2>
                   <p>Your account has been successfully activated.</p>
+                  <p>Return to <Link to={'/login'}>Login</Link></p>
                 </>
               )}
               {!loading && activationStatus === false && (

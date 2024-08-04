@@ -11,8 +11,8 @@ import {
 } from 'mdb-react-ui-kit';
 import CustomNavbar from './NavBar';
 import { toast } from 'react-toastify';
-import useLogout from '../hooks/useLogout'
-import CardTransition from './CardTransition'
+import useLogout from '../hooks/useLogout';
+import CardTransition from './CardTransition';
 import { BeatLoader } from 'react-spinners';
 import { motion } from 'framer-motion';
 
@@ -26,7 +26,7 @@ function UrlShortener() {
   const [shortUrl, setShortUrl] = useState('');
   const [title, setTitle] = useState('');
   const logout = useLogout();
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleShorten = async (e) => {
     e.preventDefault();
@@ -54,11 +54,11 @@ function UrlShortener() {
         logout();
       }
       const message = err.response?.data?.error || 'Error shortening URL';
-      toast.error(message)
+      toast.error(message);
       setShortUrl('');
     }
     finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -66,7 +66,7 @@ function UrlShortener() {
     <>
       <CustomNavbar />
       <MDBContainer fluid className='p-4 background-radial-gradient'>
-        <MDBRow className='d-flex justify-content-center align-items-center' style={{ height: '100%'}}>
+        <MDBRow className='d-flex justify-content-center align-items-center' style={{ height: '100%' }}>
           <MDBCol md='12' className='text-center mb-5'>
             <h3 className="display-5 fw-bold ls-tight" style={{ color: 'hsl(218, 81%, 95%)' }}>
               URL Shortener
@@ -77,7 +77,7 @@ function UrlShortener() {
 
           <MDBCol md='6' className='d-flex justify-content-center' style={{ marginTop: '-10%' }}>
             <CardTransition>
-              <MDBCard className='bg-glass shadow-lg' style={{ width: '100%'}}>
+              <MDBCard className='bg-glass shadow-lg' style={{ width: '100%' }}>
                 <MDBCardBody className='p-4'>
                   <motion.div variants={inputVariant} initial="hidden" animate="visible" transition={{ delay: 0.2 }}>
                     <h3 className="mb-4 text-center">Paste the <span className='fw-bold'>URL</span> to be shortened</h3>

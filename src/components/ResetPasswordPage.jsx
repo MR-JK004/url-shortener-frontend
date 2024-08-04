@@ -118,7 +118,7 @@ function ResetPasswordPage() {
               </motion.div>
 
               <motion.div variants={inputVariant} initial="hidden" animate="visible">
-                <MDBBtn className="mb-4 px-5" style={{backgroundColor:'#3B71CA'}} size='lg' onClick={handleSubmit} disabled={loading}>
+                <MDBBtn className="mb-4 px-5" color='dark' size='lg' onClick={handleSubmit} disabled={loading}>
                 {loading ? <BeatLoader size={10} color="#ffffff" /> : 'Reset Password'}
                 </MDBBtn>
               </motion.div>

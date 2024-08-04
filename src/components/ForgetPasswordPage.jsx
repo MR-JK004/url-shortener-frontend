@@ -78,7 +78,7 @@ function ForgetPasswordPage() {
               </motion.div>
 
               <motion.div variants={inputVariant} initial="hidden" animate="visible">
-                <MDBBtn className="mb-4 px-5" style={{backgroundColor:'#3B71CA'}} size='lg' onClick={handleSubmit}>
+                <MDBBtn className="mb-4 px-5" color='dark' size='lg' onClick={handleSubmit}>
                 {loading ? <BeatLoader size={10} color="#ffffff" /> : 'Submit'}
                 </MDBBtn>
               </motion.div>

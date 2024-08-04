@@ -58,10 +58,10 @@ function UrlListDisplay() {
   return (
     <>
       <Navbar />
-      <MDBContainer fluid className='p-4 background-radial-gradient'>
+      <MDBContainer fluid className='p-4 background-radial-gradient custom-colour'>
         <MDBRow className='d-flex justify-content-center align-items-center' style={{ height: 'auto' }}>
           <MDBCol md='12' className='text-center mb-5'>
-            <h3 className="display-5 fw-bold ls-tight" style={{ color: 'hsl(218, 81%, 95%)' }}>
+            <h3 className="display-5 fw-bold ls-tight custom-heading" style={{ color: 'hsl(218, 81%, 95%)' }}>
               Created URLs
               <br />
               <span className='text-muted'>View Your Shortened URLs</span>
@@ -70,7 +70,7 @@ function UrlListDisplay() {
 
           <MDBCol md='12' className='d-flex justify-content-center'>
             <CardTransition>
-              <MDBCard className='bg-glass shadow-lg' style={{ width: '80%', marginLeft: '10%' }}>
+              <MDBCard className='bg-glass shadow-lg custom-card' style={{ width: '80%', marginLeft: '10%' }}>
                 <MDBCardBody className='p-4'>
                   <motion.div variants={inputVariant} initial="hidden" animate="visible" transition={{ delay: 0.2 }}>
                     {loading ? (
@@ -78,32 +78,54 @@ function UrlListDisplay() {
                         <BeatLoader size={15} color="#007bff" />
                       </div>
                     ) : (
-                      <div className="table-responsive" style={{ maxHeight: '400px', overflowY: 'auto' }}>
-                        <Table striped bordered hover>
-                          <thead>
-                            <tr className='text-center'>
-                              <th>S.No</th>
-                              <th>Original URL</th>
-                              <th>Short URL</th>
-                              <th>Date Created</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {urlList.map((url, index) => (
-                              <tr key={url._id}>
-                                <td>{index + 1}</td>
-                                <td>{url.originalUrl}</td>
-                                <td>
+                      <>
+                        {urlList.length === 0 ? (
+                          <p>No URLs found</p>
+                        ) : (
+                          <div className="table-responsive d-none d-md-block" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+                            <Table striped bordered hover responsive>
+                              <thead>
+                                <tr className='text-center'>
+                                  <th>S.No</th>
+                                  <th>Original URL</th>
+                                  <th>Short URL</th>
+                                  <th>Date Created</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {urlList.map((url, index) => (
+                                  <tr key={url._id}>
+                                    <td>{index + 1}</td>
+                                    <td style={{ wordBreak: 'break-word' }}>{url.originalUrl}</td>
+                                    <td style={{ wordBreak: 'break-word' }}>
+                                      <a href={url.originalUrl} target="_blank" rel="noopener noreferrer">
+                                        {`https://urlshortner-backend-08lq.onrender.com/${url.shortCode}`}
+                                      </a>
+                                    </td>
+                                    <td>{new Date(url.date).toLocaleDateString()}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </Table>
+                          </div>
+                        )}
+                        <div className="d-block d-md-none">
+                          {urlList.map((url, index) => (
+                            <MDBCard key={url._id} className="mb-3">
+                              <MDBCardBody>
+                                <h5>S.No: {index + 1}</h5>
+                                <p><strong>Original URL:</strong> <span style={{ wordBreak: 'break-word' }}>{url.originalUrl}</span></p>
+                                <p><strong>Short URL:</strong> 
                                   <a href={url.originalUrl} target="_blank" rel="noopener noreferrer">
                                     {`https://urlshortner-backend-08lq.onrender.com/${url.shortCode}`}
                                   </a>
-                                </td>
-                                <td>{new Date(url.date).toLocaleDateString()}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </Table>
-                      </div>
+                                </p>
+                                <p><strong>Date Created:</strong> {new Date(url.date).toLocaleDateString()}</p>
+                              </MDBCardBody>
+                            </MDBCard>
+                          ))}
+                        </div>
+                      </>
                     )}
                     {error && <p className='text-danger'>{error}</p>}
                   </motion.div>
