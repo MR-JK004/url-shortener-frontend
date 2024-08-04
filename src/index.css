@@ -106,11 +106,11 @@ html, body {
 
 @media (max-width: 768px) {
 .custom-heading{
-  margin-top: 2000%;
+  margin-top: 1900%;
 }
 
 .custom-card{
-  width:3rem;
+  width:5rem;
 }
 
   .custom-colour {
