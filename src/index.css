@@ -156,9 +156,13 @@ body {
   }
 
   .custom-card{
-    margin-top: 40%;
+    margin-top: 60%;
     overflow-y: auto;
     max-height: calc(100vh - 150px); 
+  }
+
+  .custom-urlshort-heading{
+    margin-top: 30px;
   }
 
 }
